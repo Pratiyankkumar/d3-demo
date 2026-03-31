@@ -65,7 +65,6 @@ const RationalFunctionGraph: React.FC = () => {
     // Branch 1: x < -1
     const leftData: [number, number][] = d3.range(-6, -1.1, 0.05).map(x => [x, f(x)]);
     // Branch 2: -1 < x < 2
-    const middleData: [number, number][] = d3.range(-0.85, 1.85, 0.05).map(x => [x, f(x)]);
     // Branch 3: x > 2
     const rightData: [number, number][] = d3.range(2.15, 6, 0.05).map(x => [x, f(x)]);
 
@@ -94,8 +93,6 @@ const RationalFunctionGraph: React.FC = () => {
     drawPath(leftData, DELAY_BETWEEN_FRAMES);
 
     // --- Frame 3: Middle Branch ---
-    // eslint-disable-next-line @typescript-eslint/no-unused-vars
-    const midPath = drawPath(middleData, DELAY_BETWEEN_FRAMES * 2);
     
     // Mark intercepts in middle branch
     const intercepts = [{x: -0.5, y: 0, label: '(-0.5, 0)'}, {x: 0, y: -0.5, label: '(0, -0.5)'}];

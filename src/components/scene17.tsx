@@ -75,11 +75,11 @@ const AbsoluteRationalGraph: React.FC = () => {
     // --- 5. Critical Points: Corner (1, 0) and Intercept (0, 0.5) ---
     const points = [{x: 1, y: 0, label: "Corner (1, 0)"}, {x: 0, y: 0.5, label: "(0, 0.5)"}];
     g.selectAll(".dot").data(points).enter().append("g").attr("opacity", 0)
-      .each(function(d, i) {
+      .each(function(d, _i) {
         d3.select(this).append("circle").attr("cx", xScale(d.x)).attr("cy", yScale(d.y)).attr("r", 5).attr("fill", "#1e40af");
         d3.select(this).append("text").attr("x", xScale(d.x) + 8).attr("y", yScale(d.y) - 8).attr("font-size", "10px").attr("fill", "#1e40af").attr("font-weight", "bold").text(d.label);
       })
-      .transition().delay((d, i) => DELAY * 2 + i * 400).duration(500).attr("opacity", 1);
+      .transition().delay((_d, i) => DELAY * 2 + i * 400).duration(500).attr("opacity", 1);
 
     // --- 6. Step 4: Graphing the Three Branches ---
     const f = (x: number) => Math.abs(x - 1) / (x + 2);

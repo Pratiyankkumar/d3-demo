@@ -73,7 +73,7 @@ const SlantAsymptoteGraph: React.FC = () => {
     const pts = [{x: 0, y: -1, label: "(0, -1)"}, {x: 2, y: 5, label: "(2, 5)"}];
     g.selectAll(".dot").data(pts).enter().append("circle")
       .attr("cx", d => xScale(d.x)).attr("cy", d => yScale(d.y)).attr("r", 5).attr("fill", "#1e40af").attr("opacity", 0)
-      .transition().delay((d, i) => DELAY * 3 + i * 500).duration(500).attr("opacity", 1);
+      .transition().delay((_d, i) => DELAY * 3 + i * 500).duration(500).attr("opacity", 1);
 
     // --- 6. Curve Branches ---
     const f = (x: number) => (x * x + 1) / (x - 1);

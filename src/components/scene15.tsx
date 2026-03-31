@@ -82,7 +82,7 @@ const CardioidGraph: React.FC = () => {
       .attr("font-size", "10px").attr("fill", "#dc2626").attr("font-weight", "bold")
       .text(d => d.label);
 
-    dots.transition().delay((d, i) => 500 + i * 400).duration(500).attr("opacity", 1);
+    dots.transition().delay((_d, i) => 500 + i * 400).duration(500).attr("opacity", 1);
 
     // --- 4. Frame 2 & 3: Drawing the Cardioid Curve ---
     const lineGen = d3.line<[number, number]>().x(d => xScale(d[0])).y(d => yScale(d[1])).curve(d3.curveCardinalClosed);

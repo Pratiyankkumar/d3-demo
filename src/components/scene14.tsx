@@ -64,7 +64,7 @@ const ParametricCuspGraph: React.FC = () => {
       .attr("font-size", "10px").attr("fill", "#1e40af").attr("font-weight", "bold")
       .text(d => `t=${d.t}`);
 
-    dots.transition().delay((d, i) => 500 + i * 300).duration(500).attr("opacity", 1);
+    dots.transition().delay((_d, i) => 500 + i * 300).duration(500).attr("opacity", 1);
 
     // --- 4. Drawing the Curve (Frame 3 & 4) ---
     const lineGen = d3.line<[number, number]>().x(d => xScale(d[0])).y(d => yScale(d[1])).curve(d3.curveCardinal);

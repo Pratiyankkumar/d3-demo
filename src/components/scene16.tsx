@@ -61,7 +61,7 @@ const ParabolicInequalityGraph: React.FC = () => {
     dots.append("circle").attr("cx", d => xScale(d.x)).attr("cy", d => yScale(d.y)).attr("r", 5).attr("fill", "#1e40af");
     dots.append("text").attr("x", d => xScale(d.x) + 8).attr("y", d => yScale(d.y) - 8).attr("font-size", "10px").attr("fill", "#1e40af").attr("font-weight", "bold").text(d => d.label);
 
-    dots.transition().delay((d, i) => 500 + i * 400).duration(500).attr("opacity", 1);
+    dots.transition().delay((_d, i) => 500 + i * 400).duration(500).attr("opacity", 1);
 
     // --- 4. Frame 5: Draw the Solid Parabola y = (x-1)^2 ---
     const lineGen = d3.line<[number, number]>().x(d => xScale(d[0])).y(d => yScale(d[1])).curve(d3.curveMonotoneX);

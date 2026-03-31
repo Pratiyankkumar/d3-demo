@@ -65,7 +65,7 @@ const GraphWithHole: React.FC = () => {
       .text(d => d.label);
 
     dots.transition()
-      .delay((d, i) => DELAY_STEP + i * 500)
+      .delay((_d, i) => DELAY_STEP + i * 500)
       .duration(DURATION)
       .attr('opacity', 1);
 

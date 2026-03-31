@@ -60,7 +60,7 @@ const TangentGraph: React.FC = () => {
       .attr("text-anchor", "middle")
       .attr("font-size", "12px")
       .attr("fill", "#64748b")
-      .text((d, i) => tickLabels[i]);
+      .text((_d, i) => tickLabels[i]);
 
     // --- 3. Vertical Asymptotes (Scene 1 & 4) ---
     const asymptoteX = [-3 * Math.PI, -Math.PI, Math.PI, 3 * Math.PI];

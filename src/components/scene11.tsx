@@ -65,7 +65,7 @@ const CuspFunctionGraph: React.FC = () => {
     g.selectAll(".dot")
       .data(pts).enter().append("circle")
       .attr("cx", d => xScale(d.x)).attr("cy", d => yScale(d.y)).attr("r", 4).attr("fill", "#1e40af").attr("opacity", 0)
-      .transition().delay((d, i) => 800 + i * 200).duration(500).attr("opacity", 1);
+      .transition().delay((_d, i) => 800 + i * 200).duration(500).attr("opacity", 1);
 
     // --- 5. Drawing the Curve Branches (Frame 4) ---
     const f = (x: number) => Math.pow(Math.abs(x), 2/3);

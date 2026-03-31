@@ -114,8 +114,8 @@ const AnimatedHyperbolaScene2: React.FC = () => {
     g.selectAll('.dot')
       .data(points).enter().append('circle')
       .attr('cx', d => xScale(d.x)).attr('cy', d => yScale(d.y)).attr('r', 0)
-      .attr('fill', (d, i) => i === 2 ? '#334155' : '#ef4444')
-      .transition().delay((d, i) => DELAY_STEP * (i * 1.5)).duration(500)
+      .attr('fill', (_d, i) => i === 2 ? '#334155' : '#ef4444')
+      .transition().delay((_d, i) => DELAY_STEP * (i * 1.5)).duration(500)
       .attr('r', 5);
 
   }, []);
