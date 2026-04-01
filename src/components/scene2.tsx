@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import * as d3 from 'd3';
 
 interface HyperbolaPoint {
@@ -8,6 +8,7 @@ interface HyperbolaPoint {
 
 const AnimatedHyperbolaScene2: React.FC = () => {
   const svgRef = useRef<SVGSVGElement | null>(null);
+  const [replayKey, setReplayKey] = useState(0);
 
   useEffect(() => {
     if (!svgRef.current) return;
@@ -118,7 +119,7 @@ const AnimatedHyperbolaScene2: React.FC = () => {
       .transition().delay((_d, i) => DELAY_STEP * (i * 1.5)).duration(500)
       .attr('r', 5);
 
-  }, []);
+  }, [replayKey]);
 
   return (
     <div className="w-full flex flex-col items-center bg-white p-8 rounded-2xl shadow-xl border border-slate-200">
@@ -138,7 +139,8 @@ const AnimatedHyperbolaScene2: React.FC = () => {
       </div>
 
       <button 
-        onClick={() => window.location.reload()} 
+        type="button"
+        onClick={() => setReplayKey((k) => k + 1)} 
         className="mt-8 px-6 py-2 bg-blue-600 text-white rounded-full hover:bg-blue-700 shadow-lg transition-all"
       >
         Replay Animation
